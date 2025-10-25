@@ -55,27 +55,27 @@ This project demonstrates the creation of a **modern data pipeline** that ingest
 
 ## 📁 Project Structure
 
-weather-data-project/
+WeatherPipeline/
 │
 ├── dags/
-│ ├── ingest_weather_data.py # Python script for API ingestion
-│ ├── transform_data_set.py # Executes dbt transformations
-│ └── orchestrator.py # Defines task dependencies
+│   ├── weather_dag.py            # Airflow DAG defining the ETL workflow
 │
-├── dbt/
-│ ├── models/
-│ │ ├── staging/
-│ │ │ └── stg_weather_data.sql # Cleans and structures raw data
-│ │ └── analytics/
-│ │ ├── daily_average.sql # Aggregates daily metrics
-│ │ └── weather_report.sql # Builds summary-level report
-│ └── dbt_project.yml # dbt configuration file
+├── scripts/
+│   ├── extract_weather.py        # Extracts weather data from the API
+│   ├── transform_weather.py      # Cleans and structures the extracted data
+│   ├── load_to_postgres.py       # Loads the processed data into PostgreSQL
 │
-├── docker-compose.yml # Multi-container setup
-├── requirements.txt # Python dependencies
+├── sql/
+│   ├── create_weather_table.sql  # Table creation script
+│   ├── insert_weather_data.sql   # Data insertion queries
+│
+├── logs/                         # Airflow logs generated after DAG runs
+│
 ├── screenshots/
-│ └── airflow_success_dag.png # Airflow DAG run confirmation
-└── README.md
+│   └── airflow_dag_success.png   # DAG run success confirmation
+│
+└── README.md                     # Project documentation (this file)
+
 
 ---
 
@@ -117,12 +117,12 @@ weather-data-project/
       docker exec -it dbt_container dbt run
       ```
 6. Access Superset for visualization
-   Go to http://localhost:8088
-   Log in with the admin credentials set during setup
-   Connect to the dev schema and build dashboards from the tables:
-      stg_weather_data
-      daily_average
-      weather_report
+   Go to http://localhost:8088 <br>
+   Log in with the admin credentials set during setup <br>
+   Connect to the dev schema and build dashboards from the tables: <br>
+      stg_weather_data <br>
+      daily_average <br>
+      weather_report <br>
 
 ---
 
