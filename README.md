@@ -55,6 +55,7 @@ This project demonstrates the creation of a **modern data pipeline** that ingest
 
 ## 📁 Project Structure
 
+```bash
 WeatherPipeline/
 │
 ├── dags/
@@ -75,7 +76,7 @@ WeatherPipeline/
 │   └── airflow_dag_success.png   # DAG run success confirmation
 │
 └── README.md                     # Project documentation (this file)
-
+```
 
 ---
 
