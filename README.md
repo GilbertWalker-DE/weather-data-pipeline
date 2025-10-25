@@ -85,60 +85,44 @@ weather-data-project/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/GilbertWalker-DE/weather-data-pipeline.git
-   cd weather-data-pipeline
-Configure API Key
+      git clone https://github.com/GilbertWalker-DE/weather-data-pipeline.git
+      cd weather-data-pipeline
+      ```
+   
+2. Configure API Key
+   Create a free account at Weatherstack
+   Replace the placeholder in the Python ingestion script with your own API key:
+   ```python
+      API_KEY = "your_api_key_here"
+      ```
+   
+3. Start the Docker environment
+   ```bash
+      docker-compose up
+      ```
+   This command launches:
+      PostgreSQL (port 5432)
+      Airflow (port 8000)
+      dbt (runs on demand)
+      Superset (port 8088)
+      Redis (cache for Superset)
 
-Create a free account at Weatherstack
+4. Trigger Airflow DAGs
+   Access Airflow UI: http://localhost:8000   
+   Enable and trigger the DAG named weather-api-dbt-orchestrator   
+   Confirm successful task completion (see screenshot in /images)
 
-Replace the placeholder in the Python ingestion script with your own API key:
-
-python
-Copy code
-API_KEY = "your_api_key_here"
-Start the Docker environment
-
-bash
-Copy code
-docker-compose up
-This command launches:
-
-PostgreSQL (port 5000)
-
-Airflow (port 8000)
-
-dbt (runs on demand)
-
-Superset (port 8088)
-
-Redis (cache for Superset)
-
-Trigger Airflow DAGs
-
-Access Airflow UI: http://localhost:8000
-
-Enable and trigger the DAG named weather-api-dbt-orchestrator
-
-Confirm successful task completion (see screenshot in /screenshots)
-
-Run dbt transformations (if not automated)
-
-bash
-Copy code
-docker exec -it dbt_container dbt run
-Access Superset for visualization
-
-Go to http://localhost:8088
-
-Log in with the admin credentials set during setup
-
-Connect to the dev schema and build dashboards from the tables:
-
-stg_weather_data
-
-daily_average
-
-weather_report
+5. Run dbt transformations (if not automated)
+   ```bash
+      docker exec -it dbt_container dbt run
+      ```
+6. Access Superset for visualization
+   Go to http://localhost:8088
+   Log in with the admin credentials set during setup
+   Connect to the dev schema and build dashboards from the tables:
+      stg_weather_data
+      daily_average
+      weather_report
 
 ---
 
