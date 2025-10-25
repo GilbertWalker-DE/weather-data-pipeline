@@ -101,11 +101,11 @@ weather-data-project/
       docker-compose up
       ```
    This command launches:
-      PostgreSQL (port 5432)
-      Airflow (port 8000)
-      dbt (runs on demand)
-      Superset (port 8088)
-      Redis (cache for Superset)
+      PostgreSQL (port 5432) <br>
+      Airflow (port 8000) <br>
+      dbt (runs on demand) <br>
+      Superset (port 8088) <br>
+      Redis (cache for Superset) <br>
 
 4. Trigger Airflow DAGs
    Access Airflow UI: http://localhost:8000   
