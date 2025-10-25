@@ -1,0 +1,20 @@
+Here are the chapters:
+0:00 - Intro
+1:25 - Installing Visual Studio Code
+2:05 - Setting up a WSL Linux Instance
+5:56 - Installing and Setting up Docker for WSL
+7:02 - Weatherstack API
+7:59 - API Request using Python
+13:48 - Setting up Postgres using Docker Compose
+17:48 - Ingest Data into Postgres with psycopg2
+27:24 - Setting up Airflow using Docker Compose
+34:19 - Creating a DAG for Data Ingestion
+43:40 - Setting up dbt using Docker Compose
+50:16 - Creating dbt Models for Analytics
+57:26 - Creating a DAG for dbt
+1:04:34 - Creating DAG dependencies
+1:05:38  - Setting up Superset using Docker Compose
+1:16:38 - Creating a Real-time Superset Dashboard
+
+
+Airflow - Password for user 'admin': EhSkRG8s49ESrn3M
